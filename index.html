@@ -1,0 +1,42 @@
+<html ng-app="myApp">
+
+<head>
+<title> MouseOver </title>
+<script src="node_modules\angular\angular.min.js"> </script>
+</head>
+
+
+
+<body>
+  <div ng-controller="myController">
+  <button ng-mouseover="hoverIn()"  ng-mouseleave="hoverOut()">
+     Change color when hover
+   </button>
+
+       <h1>
+          <span ng-style=myMouseOver> {{hoverEdit}} </span>
+      </h1>
+</div>
+
+
+<script>
+    var app = angular.module("myApp", []);
+    app.controller("myController", function ($scope) {
+
+        $scope.hoverIn = function(){
+            this.hoverEdit = "you touched the button";
+            this.myMouseOver = {'background-color': 'blue'};
+        };
+
+        $scope.hoverOut = function(){
+            this.hoverEdit =  "you are not touching the button";
+            this.myMouseOver = {'background-color': 'red'};
+
+        };
+  });
+</script>
+
+
+</body>
+
+</html>
